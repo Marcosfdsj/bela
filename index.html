@@ -14,13 +14,12 @@
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .container {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
       text-align: center;
       color: white;
       padding: 20px;
@@ -28,7 +27,7 @@
     }
 
     h2 {
-      font-size: 1.8em; /* Fonte maior para celular */
+      font-size: 2em; /* Fonte grande para celular */
       line-height: 1.4em;
     }
 
@@ -70,13 +69,13 @@
     /* Responsividade */
     @media (max-width: 768px) {
       h2 {
-        font-size: 1.5em;
+        font-size: 1.8em;
       }
     }
 
     @media (max-width: 480px) {
       h2 {
-        font-size: 1.3em;
+        font-size: 1.5em;
       }
     }
   </style>
@@ -97,7 +96,7 @@
     var r_bg = Math.floor(Math.random() * 25) + 100;
     var r_time = Math.floor(Math.random() * 5) + 5;
 
-    $('.container').append("<div class='heart' style='width:"+r_size+"px;height:"+r_size+"px;left:"+r_left+"%;background:rgba(255,"+(r_bg-25)+","+r_bg+",0.8);animation:love "+r_time+"s linear'></div>");
+    $('body').append("<div class='heart' style='width:"+r_size+"px;height:"+r_size+"px;left:"+r_left+"%;background:rgba(255,"+(r_bg-25)+","+r_bg+",0.8);animation:love "+r_time+"s linear'></div>");
     
     $('.heart').each(function() {
       var $this = $(this);
@@ -109,7 +108,7 @@
 
   // Typewriter
   var i = 0;
-  var txt1 = "Você é a pessoa mais especial da minha vida, aquela em quem deposito toda a minha confiança e com quem quero construir cada capítulo do meu futuro. ✨♥ – Bela ♥";
+  var txt1 = "Você é a pessoa mais especial da minha vida, aquela em quem deposito toda a minha confiança e com quem quero construir cada capítulo do meu futuro. ✨♥ – Bela ♥ By: Marcos D.";
   var speed = 50;
 
   function typeWriter() {
