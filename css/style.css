@@ -311,5 +311,10 @@ footer {
     font-size: 1rem;
     margin-top: 10px;
   }
+
+  .hero .btn{
+    font-size: 14px;
+  }
+
 }
 
