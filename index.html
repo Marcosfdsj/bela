@@ -1,126 +1,267 @@
-<html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+
 <head>
-  <title>Para você</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      width: 100%;
-      font-family: cursive;
-      overflow: hidden;
-      background-image: url("https://i.pinimg.com/originals/51/d8/37/51d8374126446d495348b6032202126f.jpg");
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .container {
-      text-align: center;
-      color: white;
-      padding: 20px;
-      max-width: 90%;
-    }
-
-    h2 {
-      font-size: 2em; /* Fonte grande para celular */
-      line-height: 1.4em;
-    }
-
-    .heart {
-      position: absolute;
-      top: -10%;
-      transform: rotate(-45deg);
-      width: 20px;
-      height: 20px;
-      background: rgba(255, 100, 150, 0.8);
-      animation: love 5s linear infinite;
-      border-radius: 10%;
-    }
-
-    .heart:before, .heart:after {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: inherit;
-      border-radius: 50%;
-    }
-
-    .heart:before {
-      top: -50%;
-      left: 0;
-    }
-
-    .heart:after {
-      top: 0;
-      right: -50%;
-    }
-
-    @keyframes love {
-      0% { top: 110%; opacity: 1; }
-      100% { top: -20%; opacity: 0; }
-    }
-
-    /* Responsividade */
-    @media (max-width: 768px) {
-      h2 {
-        font-size: 1.8em;
-      }
-    }
-
-    @media (max-width: 480px) {
-      h2 {
-        font-size: 1.5em;
-      }
-    }
-  </style>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LUNA TAROLOGA</title>
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="description"
+        content="Consultas rápidas de Tarot. Faça 1, 2 ou 4 perguntas e receba a leitura de Maria Padilha." />
+    <!-- Bootstrap 5.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 </head>
+
 <body>
 
-<div class="container">
-  <h2 id="text1"></h2>
-</div>
+    <!-- NAV -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-white" href="#"><i class="fa-solid fa-moon fs-2"></i> <span
+                    class="fs-2 text-uppercase">Luna Tarologa</span></a>
+            <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+                <span class="navbar-toggler-icon" style="filter:invert(1)"></span>
+            </button>
+            <div id="nav" class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-uppercase fw-bold fs-5 mt-1">
+                    <li class="nav-item"><a class="nav-link" href="#planos">Planos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#como-funciona">Como funciona</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://wa.me/556596039888" target="_blank">Dúvidas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://wa.me/556596039888" target="_blank">Consultar agora</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-  // Criação dos corações animados
-  setInterval(function() {
-    var r_num = Math.floor(Math.random() * 40) + 1;
-    var r_size = Math.floor(Math.random() * 65) + 20;
-    var r_left = Math.floor(Math.random() * 100) + 1;
-    var r_bg = Math.floor(Math.random() * 25) + 100;
-    var r_time = Math.floor(Math.random() * 5) + 5;
+    <!-- HERO -->
+    <header class="hero">
+        <div class="content container">
+            <h1 class="display-5 text-white text-uppercase">Consultas de Tarot rápidas, discretas e certeiras</h1>
+            <p class="fst-italic mt-3">
+                Faça sua pergunta e receba a leitura diretamente no WhatsApp. Atendimento humanizado, foco em amor,
+                trabalho e caminhos espirituais.
+            </p>
+            <div class="d-flex gap-2 justify-content-center">
+                <a href="#planos" class="btn btn-red btn-lg border border-2 p-2 border-danger mt-3"><i
+                        class="fa-solid fa-wand-magic-sparkles me-2 text-danger fw-bold"></i> <span
+                        class="text-danger">Escolher plano</span></a>
+                <a href="#como-funciona" class="btn btn-outline-red btn-lg border border-2 p-2 border-danger mt-3"><i
+                        class="fa-regular fa-circle-question me-2 text-danger fw-bold"></i> <span
+                        class="text-danger">Como funciona</span></a>
+            </div>
+        </div>
+    </header>
 
-    $('body').append("<div class='heart' style='width:"+r_size+"px;height:"+r_size+"px;left:"+r_left+"%;background:rgba(255,"+(r_bg-25)+","+r_bg+",0.8);animation:love "+r_time+"s linear'></div>");
     
-    $('.heart').each(function() {
-      var $this = $(this);
-      setTimeout(function() {
-        $this.remove();
-      }, r_time * 1000);
-    });
-  }, 500);
+    <section class="trust py-4 border-top border-bottom" style="border-color:#1c1c25!important; background:#0f0f14">
+        <div class="container text-center small text-uppercase text-secondary fw-bold fs-4 text-white">
+            <span class="me-3"><i class="fa-solid fa-lock me-1 text-danger"></i> Sigilo total</span>
+            <span class="me-3"><i class="fa-solid fa-bolt me-1 text-danger"></i> Resposta rápida</span>
+            <span><i class="fa-brands fa-whatsapp me-1 text-danger"></i> Entrega por WhatsApp</span>
+        </div>
+    </section>
 
-  // Typewriter
-  var i = 0;
-  var txt1 = "Você é a pessoa mais especial da minha vida, aquela em quem deposito toda a minha confiança e com quem quero construir cada capítulo do meu futuro. ✨♥ – Bela ♥ By: Marcos D.";
-  var speed = 50;
+    <section class="promo-section text-center" id="promo-section">
 
-  function typeWriter() {
-    if (i < txt1.length) {
-      document.getElementById("text1").innerHTML += txt1.charAt(i);
-      i++;
-      setTimeout(typeWriter, speed);
-    }
-  }
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            <!-- Card 1 -->
+            <div class="col">
+                <div class="promo-card shadow-lg">
+                    <i class="fa-brands fa-pix mt-5"></i>
+                    <h2 class="fw-bold text-uppercase">1 PERGUNTA = 7 Reais</h2>
+                    <p class="fs-4 text-danger fw-bold text-uppercase mb-5">Condição especial para novos clientes do site. Por tempo
+                        limitado, aproveite já!</p>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="col">
+                <div class="promo-card shadow-lg">
+                    <i class="fa-solid fa-gift mt-5"></i>
+                    <h2>+ 1 PERGUNTA DE BÔNUS</h2>
+                    <p class="fs-4 text-danger fw-bold text-uppercase mb-5">Deixe sua avaliação da consulta e ganhe + 1
+                        PERGUNTA de bônus!</p>
+                </div>
+            </div>
+            <!-- Card 3 (botão de ação) -->
+            <div class="col">
+                <div class="promo-card bg-transparent mt-5">
 
-  typeWriter();
-</script>
+                    <h1 class="text-uppercase fw-bold mt-3">PROMOÇÃO ESPECIAL DE BOAS VINDAS no site</h1><br><br>
+                    <a href="https://wa.me/556596039888" target="_blank" class="bg-success p-2 fs-3 mb-5"><span><i class="fa-brands fa-whatsapp fs-3"></i> ENTRAR EM CONTATO</span></a>
+                </div>
+            </div>
+    </section>
 
+        <!-- COMO FUNCIONA -->
+    <section id="como-funciona" class="py-6 p-5" style="background:grey">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title text-uppercase text-white">Como funciona</h2>
+                <p class="section-sub text-white fs-6">Processo simples em 3 passos.</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="h-100 p-4 border rounded-4 p-5" style="border-color:#1f1f28">
+                        <div class="d-flex align-items-center mb-2">
+                            <span class="badge badge-red me-2 fs-5"><i class="fa-solid fa-check"></i></span>
+                            <h4 class="h4 m-0 text-uppercase">Escolha o plano</h4>
+                        </div>
+                        <p class="text-secondary mb-0 text-white">Selecione a quantidade de perguntas e inicie o atendimento pelo
+                            WhatsApp.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="h-100 p-4 border rounded-4 p-5" style="border-color:#1f1f28">
+                        <div class="d-flex align-items-center mb-2">
+                            <span class="badge badge-red me-2 fs-5"><i class="fa-solid fa-question"></i></span>
+                            <h4 class="h4 m-0 text-uppercase">Envie sua dúvida</h4>
+                        </div>
+                        <p class="text-secondary mb-0 text-white">Descreva o contexto (nome e data de nascimento ajudam, se quiser).</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="h-100 p-4 border rounded-4 p-5" style="border-color:#1f1f28">
+                        <div class="d-flex align-items-center mb-2">
+                            <span class="badge badge-red me-2 fs-5"><i class="fa-brands fa-whatsapp"></i></span>
+                            <h4 class="h4 m-0 text-uppercase">RECEBA A LEITURA</h4>
+                        </div>
+                        <p class="text-secondary mb-0 text-white">Resposta enviada com fotos/vídeo das cartas e orientação prática.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PLANOS -->
+    <section id="planos" class="py-6 py-md-7">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title text-uppercase text-white">Planos de Perguntas</h2>
+                <p class="section-sub">Escolha a quantidade de perguntas e finalize pelo WhatsApp.</p>
+            </div>
+
+            <div class="row g-4">
+                <!-- 1 pergunta -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="price-card h-100 d-flex flex-column">
+                        <div class="head d-flex align-items-center justify-content-between">
+                            <h3 class="h5 m-0">1 Pergunta</h3>
+                            <span class="badge text-bg-dark border border-danger">Iniciante</span>
+                        </div>
+                        <div class="p-4 pb-0">
+                            <div class="price">R$ 10 <span class="unit">/ leitura</span></div>
+                            <ul class="checks mt-3 list-unstyled small">
+                                <li class="mb-2"><i class="fa-solid fa-check me-2"></i> Orientação objetiva</li>
+                                <li class="mb-2"><i class="fa-solid fa-check me-2"></i> Envio de foto</li>
+                                <li class="mb-2"><i class="fa-solid fa-check me-2"></i> Envio de áudio de explicação</li>
+                            </ul>
+                        </div>
+                        <div class="p-4 mt-auto">
+                            <a class=" w-100 mx-auto justify-content-center d-flex fs-5" style="text-decoration: none; color: white;"
+                                href="https://wa.me/+556596039888?text=Quero%201%20pergunta%20de%20Tarot"><i class="fa-brands fa-whatsapp mt-1"></i> <span class="ms-1">Consultar no
+                                WhatsApp</span></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2 perguntas -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="price-card h-100 d-flex flex-column position-relative">
+                        <div class="head d-flex align-items-center justify-content-between">
+                            <h3 class="h5 m-0">2 Perguntas</h3>
+                            <span class="badge text-bg-dark border border-danger" style="margin-right: -10px;">Custo-benefício</span>
+                        </div>
+                        <div class="p-4 pb-0">
+                            <div class="price">R$ 20 <span class="unit">/ leitura</span></div>
+                            <ul class="checks mt-3 list-unstyled small">
+                                <li class="mb-2"><i class="fa-solid fa-check me-2"></i> Respostas detalhadas</li>
+                                <li class="mb-2"><i class="fa-solid fa-check me-2"></i> 2 Envios de fotos</li>
+                                <li class="mb-2"><i class="fa-solid fa-check me-2"></i> 1 ajuste de pergunta</li>
+                            </ul>
+                        </div>
+                        <div class="p-4 mt-auto">
+                            <a class=" w-100 mx-auto justify-content-center d-flex fs-5" style="text-decoration: none; color: white;"
+                                href="https://wa.me/+556596039888?text=Quero%202%20perguntas%20de%20Tarot"><i class="fa-brands fa-whatsapp mt-1"></i> <span class="ms-1">Consultar no
+                                WhatsApp</span></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3 perguntas -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="price-card h-100 d-flex flex-column">
+                        <div class="ribbon fw-bold fs-6">Mais pedido</div>
+                        <div class="head d-flex align-items-center justify-content-between">
+                            <h3 class="h5 m-0">3 Perguntas+Conselho</h3>
+                            <span class="badge text-bg-dark border border-danger" style="margin-right: 85px;">Completo</span>
+                        </div>
+                        <div class="p-4 pb-0">
+                            <div class="price">R$ 35 <span class="unit">/ leitura</span></div>
+                            <ul class="checks mt-3 list-unstyled small">
+                                <li class="mb-2"><i class="fa-solid fa-check me-2"></i> Leitura expandida</li>
+                                <li class="mb-2"><i class="fa-solid fa-check me-2"></i> 3 fotos das cartas</li>
+                                <li class="mb-2"><i class="fa-solid fa-check me-2"></i> 2 ajuste de pergunta</li>
+                            </ul>
+                        </div>
+                        <div class="p-4 mt-auto">
+                            <a class=" w-100 mx-auto justify-content-center d-flex fs-5" style="text-decoration: none; color: white;"
+                                href="https://wa.me/+556596039888?text=Quero%302%20perguntas%20de%20Tarot%20Completo%20mais%20conselho"><i class="fa-brands fa-whatsapp mt-1"></i> <span class="ms-1">Consultar no
+                                WhatsApp</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="text-center mt-4 small text-secondary fs-5" style="text-decoration: underline;">
+                Pagamento por Pix. Sigilo e respeito sempre.
+            </p>
+        </div>
+    </section>
+
+
+
+    <!-- FAQ -->
+    <section id="faq" class="py-6 d-none">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Dúvidas frequentes</h2>
+                <p class="section-sub">Transparência do início ao fim.</p>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion" id="faqAcc">
+                        <!-- Accordion items here -->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-5">
+        <div class="container">
+            <div class="row gy-4 align-items-center">
+                <div class="col-md-6">
+                    <h5 class="fw-bold mb-2 text-white">LUNA TAROLOGA</h5>
+                    <p class="text-secondary mb-0 text-white">© <span id="year"></span> Todos os direitos reservados.</p>
+                </div>
+                <div class="col-md-6 text-md-end social">
+                    <a href="https://wa.me/556596039888" class="btn btn-red"><i class="fa-brands fa-whatsapp me-2"></i>
+                        Falar no WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 </body>
+
 </html>
